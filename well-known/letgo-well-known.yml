@@ -1,0 +1,47 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of https://www.letgo.com/.well-known/*
+host: https://www.letgo.com
+verified: false
+note: >-
+  No real /.well-known/ document could be retrieved. www.letgo.com is fronted by an
+  Akamai bot-mitigation challenge that answers almost every path with HTTP 200 and a
+  "Challenge Validation" HTML interstitial rather than the requested resource. The 200
+  statuses recorded below are therefore NOT evidence that these documents exist — each
+  response body was inspected and confirmed to be the challenge page. Only /robots.txt
+  returned a genuine document. No WellKnown or SecurityTxt pointer is wired into
+  apis.yml because no well-known document was actually observed.
+documents:
+- path: /.well-known/security.txt
+  status: 403
+  document_returned: false
+- path: /.well-known/openid-configuration
+  status: 200
+  document_returned: false
+  body: bot-challenge HTML (not OIDC discovery JSON)
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  document_returned: false
+  body: bot-challenge HTML (not RFC 8414 JSON)
+- path: /.well-known/api-catalog
+  status: 200
+  document_returned: false
+  body: bot-challenge HTML (not RFC 9727 api-catalog)
+- path: /.well-known/ai-plugin.json
+  status: 200
+  document_returned: false
+  body: bot-challenge HTML (not an ai-plugin manifest)
+- path: /llms.txt
+  status: 404
+  document_returned: false
+other_paths:
+- path: /robots.txt
+  status: 200
+  document_returned: true
+  note: >-
+    Genuine document. Turkish-language classifieds site (/arama search route, ?son=
+    and otoplus vehicle filters). Disallows /api/, /account/, /chat/, /payments/ —
+    an application-internal API exists but is not a public developer API.
+  sitemaps:
+  - https://www.letgo.com/sitemap-categories.xml
+  - https://www.letgo.com/sitemap-item-index.xml

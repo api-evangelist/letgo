@@ -1,0 +1,24 @@
+# letgo
+
+> letgo is a mobile-first classifieds and secondhand marketplace for peer-to-peer resale of used goods — vehicles, electronics, furniture, and household items — with chat-based buyer/seller messaging and location-based discovery. Founded in 2015 and backed by Naspers/OLX, letgo combined its US operation with OfferUp in 2020; the letgo brand and letgo.com continue to operate as a regional classifieds marketplace currently serving a Turkish-language catalog.
+
+## Status
+
+letgo publishes **no public developer program, API documentation, SDKs, or developer portal**. As of 2026-07-19 no public API surface could be verified:
+
+- The application-internal API under `/api/` is explicitly disallowed in `robots.txt` and is not a documented public API.
+- `www.letgo.com` is fronted by an Akamai bot-mitigation challenge that returns a "Challenge Validation" interstitial for nearly every path, so no documentation, terms, privacy, or help page could be retrieved and confirmed.
+- No `/.well-known/` discovery document was observed. `/llms.txt` returns 404.
+- No `letgo` GitHub organization exists. The `letgo`-named packages on npm are unrelated third-party projects (a low-code engine), not first-party client libraries.
+- The legacy US property `us.letgo.com` no longer resolves (NXDOMAIN).
+
+Agents should not expect a machine-readable letgo API. No OpenAPI, AsyncAPI, MCP server, or Agent Skill artifacts exist for this provider.
+
+## Links
+
+- [letgo](https://www.letgo.com/): Marketplace website (behind bot mitigation)
+
+## Artifacts
+
+- [Domain security](security/letgo-domain-security.yml): Probed TLS/DNS posture — TLSv1.3, no HSTS observed, no DNSSEC, no CAA, SPF present, DMARC present at p=none
+- [Well-known index](well-known/letgo-well-known.yml): Record of the /.well-known/ probe results and why none were retrievable

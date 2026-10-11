@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "letgo",
+    "captured_at": "2026-10-11T190929",
+    "source_url": "https://www.letgo.com/",
+    "source_type": "Website",
+    "file": "letgo-2026-10-11T190929.png",
+    "bytes": 435504,
+    "capture": "playwright-local"
+  }
+]
